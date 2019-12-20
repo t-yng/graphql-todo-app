@@ -1,18 +1,9 @@
 import express from 'express';
 import { ApolloServer, gql } from 'apollo-server-express';
 import { prisma } from './generated/prisma-client';
+import { importSchema } from 'graphql-import';
 
-const typeDefs = gql`
-    type Todo {
-        id: Int!
-        title: String
-    }
-
-    type Query {
-        todo(id: Int): Todo
-        todoes(title: String): [Todo]
-    }
-`;
+const typeDefs = importSchema(`${__dirname}/schema/schema.graphql`);
 
 const resolvers = {
     Query: {

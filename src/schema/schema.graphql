@@ -1,0 +1,6 @@
+# import Todo from "todoes.graphql"
+
+type Query {
+    todo(id: Int): Todo
+    todoes(title: String): [Todo]
+}

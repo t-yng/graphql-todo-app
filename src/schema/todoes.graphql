@@ -1,0 +1,4 @@
+type Todo {
+    id: Int!
+    title: String
+}
